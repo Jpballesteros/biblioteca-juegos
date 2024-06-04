@@ -1,0 +1,24 @@
+<!-- app.component.html -->
+<div class="bg-gradient">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col">
+        <h1 class="listar">Listado juegos</h1>
+        <div class="card-deck">
+          <div class="card" *ngFor="let juego of juegos">
+            <img class="card-img-top" [src]="ruta_imagenes + juego.imagen" alt="Imagen del juego">
+            <div class="card-body">
+              <h5 class="card-title">{{ juego.nombre }}</h5>
+              <p class="card-text">Descripción: {{ juego.descripcion }}</p>
+              <p class="card-text">Precio: {{ juego.precio }}</p>
+            </div>
+            <div class="card-footer">
+              <a [routerLink]="['/editar/', juego.id]" class="btn btn-primary">Editar</a>
+              <button (click)="eliminarJuego(juego.id.toString())" class="btn btn-danger">Eliminar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,75 @@
+/* Contenedor principal del formulario */
+#form-juegos {
+    max-width: 600px;
+    margin: 20px auto; /* Centra el formulario y añade espacio superior e inferior */
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Contenedor para los inputs */
+  .cont-input {
+    margin-bottom: 20px;
+  }
+  
+  /* Estilo para los campos de formulario */
+  mat-form-field {
+    width: 100%;
+  }
+  
+  /* Estilo para las alertas de error */
+  .alert-custom {
+    color: #d9534f;
+    font-size: 0.9rem;
+    margin-top: 5px;
+  }
+  
+  /* Estilo para los botones */
+  button {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 4px;
+  }
+  
+  /* Estilo para los inputs de archivo */
+  #img-juego {
+    display: none;
+  }
+  
+  #img-juego + label {
+    display: inline-block;
+    cursor: pointer;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 4px;
+    margin-top: 10px;
+  }
+  
+  #img-juego + label:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Estilo para las filas y columnas */
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px; /* Añade espacio entre las columnas */
+  }
+  
+  .col-md-6 {
+    flex: 1;
+    min-width: calc(50% - 15px); /* Calcula el ancho restando el espacio del gap */
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+  
+  /* Estilo para los mensajes de error */
+  .text-danger {
+    color: #d9534f;
+  }
+  

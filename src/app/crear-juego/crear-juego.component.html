@@ -1,0 +1,52 @@
+<h1 class="crear">Crear juego</h1>
+
+<form [formGroup]="formJuego" (ngSubmit)="guardarJuego()" id="form-juegos">
+    <mat-card class="cont-input">
+        <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Nombre del juego</mat-label>
+            <input matInput formControlName="nombre">
+        </mat-form-field>
+        <mat-card-content>
+            <div *ngIf="f['nombre'].invalid && (f['nombre'].dirty || f['nombre'].touched)" class="text-danger alert-custom">
+                <div *ngIf="f['nombre'].errors?.['required']">El nombre es requerido</div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+
+    <mat-card class="cont-input">
+        <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Descripción</mat-label>
+            <textarea matInput formControlName="descripcion"></textarea>
+        </mat-form-field>
+        <mat-card-content>
+            <div *ngIf="f['descripcion'].invalid && (f['descripcion'].dirty || f['descripcion'].touched)" class="text-danger alert-custom">
+                <div *ngIf="f['descripcion'].errors?.['required']">La descripción es requerida</div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+
+    <div class="row">
+        <div class="col-md-6">
+            <mat-card class="cont-input">
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Precio</mat-label>
+                    <input matInput formControlName="precio">
+                </mat-form-field>
+                <mat-card-content>
+                    <div *ngIf="f['precio'].invalid && (f['precio'].dirty || f['precio'].touched)" class="text-danger alert-custom">
+                        <div *ngIf="f['precio'].errors?.['required']">El precio es requerido</div>
+                        <div *ngIf="f['precio'].errors?.['min']">El precio debe ser mayor a 0</div>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+        <div class="col-md-6 cont-input">
+            <input type="file" name="img-producto" id="img-producto" (change)="onFileSelected($event)">
+            <label for="img-producto" class="btn btn-primary">Seleccionar imagen</label>
+        </div>
+    </div>
+
+    <div class="text-center">
+        <button mat-raised-button color="primary" type="submit">Guardar</button>
+    </div>
+</form>

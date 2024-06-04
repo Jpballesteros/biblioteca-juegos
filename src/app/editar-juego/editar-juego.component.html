@@ -1,0 +1,53 @@
+<form [formGroup]="formJuego" (ngSubmit)="actualizarJuego()" id="form-juegos">
+    <div class="cont-input">
+        <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Nombre del juego</mat-label>
+            <input matInput formControlName="nombre">
+        </mat-form-field>
+        <div *ngIf="formJuego.controls['nombre'].invalid && 
+                    (formJuego.controls['nombre'].dirty || formJuego.controls['nombre'].touched)" 
+             class="text-danger alert-custom">
+            El nombre es requerido
+        </div>
+    </div>
+
+    <div class="cont-input">
+        <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Descripción</mat-label>
+            <textarea matInput formControlName="descripcion"></textarea>
+        </mat-form-field>
+        <div *ngIf="formJuego.get('descripcion')?.invalid && 
+                    (formJuego.get('descripcion')?.dirty || formJuego.get('descripcion')?.touched)" 
+             class="text-danger alert-custom">
+            La descripción es requerida
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 cont-input">
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Precio</mat-label>
+                <input matInput formControlName="precio">
+            </mat-form-field>
+            <div *ngIf="formJuego.get('precio')?.invalid && 
+                        (formJuego.get('precio')?.dirty || formJuego.get('precio')?.touched)" 
+                 class="text-danger alert-custom">
+                <div *ngIf="formJuego.get('precio')?.errors?.['required']">
+                    El precio es requerido
+                </div>
+                <div *ngIf="formJuego.get('precio')?.errors?.['min']">
+                    El precio debe ser mayor a 0
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 cont-input">
+            <input type="file" name="img-juego" id="img-juego" (change)="onFileSelected($event)">
+            <label for="img-juego" class="btn btn-primary">Seleccionar imagen</label>
+        </div>
+    </div>
+
+    <div class="text-center">
+        <button mat-raised-button color="primary" [disabled]="formJuego.invalid">Actualizar</button>
+    </div>
+</form>

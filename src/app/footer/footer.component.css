@@ -1,0 +1,30 @@
+/* Estilos para el footer */
+.footer {
+    padding: 50px 0;
+    background-color: #007bff; /* Color primary de Bootstrap */
+  }
+  
+  .footer h2 {
+    color: #fff;
+    font-size: 1.5rem;
+  }
+  
+  .footer p {
+    color: #fff;
+    font-size: 1rem;
+  }
+  
+  .social-icons a {
+    color: #fff;
+    font-size: 1.5rem;
+    margin-right: 10px;
+  }
+  
+  /* Estilos para el texto del copyright */
+  .footer-bottom {
+    background-color: #0056b3; /* Color más oscuro para el fondo */
+    color: #fff;
+    padding: 15px 0;
+    font-size: 0.9rem;
+  }
+  
